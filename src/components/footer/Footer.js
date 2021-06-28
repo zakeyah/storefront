@@ -9,7 +9,9 @@ const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
     height:'50px',
-
+    // position:'absolute',
+    marginTop:'calc(5% + 60px)'
+  
   },
 }));
 

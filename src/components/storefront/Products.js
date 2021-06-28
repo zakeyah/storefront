@@ -1,15 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Card from "@material-ui/core/Card";
 import { Button} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
+import {add} from '../../store/actions'
+import {useSelector, useDispatch} from 'react-redux';
 
 
 function Products(props) {
-  console.log(props)
+  const state = useSelector((state)=> {
+    return {active: state.categories.active, products: state.products.products} });
+  const dispatch = useDispatch();
   return (
     <>
     <p style={{marginLeft:'47%',fontSize:'25px'}}>{props.active}</p>
@@ -17,8 +21,9 @@ function Products(props) {
       gridColumnGap: '50px',
       gridTemplateColumns: 'auto auto auto'}}>
 
-    {props.products.map((product) => {
-      if (props.active === product.category) {
+    {state.products.map((product,index) => {
+      if (state.active === product.category) {
+        product.index=index
         return (
 
             <Card
@@ -37,6 +42,7 @@ function Products(props) {
             <CardContent style={{marginTop:'-20px'}}>In Stock : {product.count}</CardContent>
             <Button
             startIcon={<AddShoppingCartIcon />}
+            onClick={() =>dispatch(add(product))}
             
             variant="outlined" color="secondary" style = {{boxShadow:` 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -59,12 +65,8 @@ function Products(props) {
     </Grid>
   </>
   )
+
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
-  return { active: state.categories.active, products: state.products.products};
-};
 
-
-export default connect(mapStateToProps)(Products);
+export default Products;
