@@ -6,16 +6,21 @@ import { Button} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import {add} from '../../store/actions'
+import {add,getRemoteData} from '../../store/actions'
 import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react'
 
 
 function Products(props) {
+
+  const dispatch = useDispatch();
+  useEffect(()=>dispatch(getRemoteData()), []);
+
   const state = useSelector((state)=> {
     return {active: state.categories.active, products: state.products.products} });
-  const dispatch = useDispatch();
-  return (
-    <>
+    console.log('............',state.products)
+    return (
+      <>
     <p style={{marginLeft:'47%',fontSize:'25px'}}>{props.active}</p>
     <Grid item sm={5} style ={{display: 'grid',
       gridColumnGap: '50px',
@@ -36,10 +41,10 @@ function Products(props) {
             key={product.name}
           >
             <CardMedia className={"img"} image={product.img} />
-            <img alt={product.name} src={product.image}  width="200" height="180" style ={{marginLeft:'60px',marginTop:'10px'}}></img>
+            <img alt={product.name} src={product.Image}  width="200" height="180" style ={{marginLeft:'60px',marginTop:'10px'}}></img>
             <CardContent><h2>{product.name}</h2></CardContent>
             <CardContent style={{marginTop:'-20px' }} variant="h1">Price : {product.price}$</CardContent>
-            <CardContent style={{marginTop:'-20px'}}>In Stock : {product.count}</CardContent>
+            <CardContent style={{marginTop:'-20px'}}>In Stock : {product.isStock}</CardContent>
             <Button
             startIcon={<AddShoppingCartIcon />}
             onClick={() =>dispatch(add(product))}
