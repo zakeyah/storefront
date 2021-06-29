@@ -12,7 +12,7 @@ const categories= (state = initialState, action) => {
         case 'ACTIVE':
             const categories = state.categories;
             const active = payload;
-            console.log('in ACTIVE  case: ', categories,active);
+            // console.log('in ACTIVE  case: ', categories,active);
             return { categories, active };
 
 
@@ -21,13 +21,7 @@ const categories= (state = initialState, action) => {
     }
 };
 
-export const active = (name) => {
-    console.log('in active function  case: ', name);
-    return {
-      type: 'ACTIVE',
-      payload: name,
-    };
-  };
+
 
 
 export default  categories ;
