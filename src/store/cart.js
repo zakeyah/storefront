@@ -3,9 +3,12 @@ let initialState =  []
 const cartReducer= (state = initialState, action) => {
     let {type, payload} = action;
     switch(type) {
-        case 'ADD':
+      case 'GETCART':
+            state=payload
+            return state;
+           case 'ADD':
 
-          if (!(state.includes(payload))){
+          if (state.includes(payload)){
             payload.quantity=1
             return [...state,payload];
           }
@@ -17,6 +20,8 @@ const cartReducer= (state = initialState, action) => {
               return product
             })
             return newState;
+
+      
 
             case 'DELETE':
             const filter =  state.filter((product) =>

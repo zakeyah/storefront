@@ -1,6 +1,5 @@
 # storefront
 [Code Sandbox](https://codesandbox.io/s/kind-poincare-0ml0h?file=/src/App.js)
-[netlify](https://virtual-web-store.netlify.app/)
 
 ![](/images/lab36.jpg)
 
