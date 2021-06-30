@@ -6,7 +6,7 @@ import { Button} from "@material-ui/core";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import {add,getRemoteData} from '../../store/actions'
+import {increment,getRemoteData} from '../../store/actions'
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react'
 
@@ -18,7 +18,7 @@ function Products(props) {
 
   const state = useSelector((state)=> {
     return {active: state.categories.active, products: state.products.products} });
-    console.log('............',state.products)
+    // console.log('............',state.products)
     return (
       <>
     <p style={{marginLeft:'47%',fontSize:'25px'}}>{props.active}</p>
@@ -47,7 +47,7 @@ function Products(props) {
             <CardContent style={{marginTop:'-20px'}}>In Stock : {product.isStock}</CardContent>
             <Button
             startIcon={<AddShoppingCartIcon />}
-            onClick={() =>dispatch(add(product))}
+            onClick={() =>dispatch(increment(product))}
             
             variant="outlined" color="secondary" style = {{boxShadow:` 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
             0 6.7px 5.3px rgba(0, 0, 0, 0.048),
