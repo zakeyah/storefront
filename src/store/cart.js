@@ -4,7 +4,6 @@ const cartReducer= (state = initialState, action) => {
     let {type, payload} = action;
     switch(type) {
       case 'GETCART':
-            // console.log("payload ---->" , payload)
             state=payload
             return state;
            case 'ADD':
