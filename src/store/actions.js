@@ -7,11 +7,10 @@ export const getRemoteData = () => (dispatch, state) => {
     // 2- then dispatch an action with the response after we get it.
    return superagent.get(api).then(res=> {
         dispatch(getAction(res.body));
-    });
-}
-
-export const getCartData = () => (dispatch, state) => {
-  console.log('hiii from get cart data')
+      });
+    }
+    
+    export const getCartData = () => (dispatch, state) => {
  return superagent.get(api2).then(res=> {
       dispatch(getCartAction(res.body));
   });

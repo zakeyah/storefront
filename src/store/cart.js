@@ -7,6 +7,7 @@ const cartReducer= (state = initialState, action) => {
             state=payload
             return state;
            case 'ADD':
+             console.log('from payload =====',payload.name)
 
           if (state.includes(payload)){
             payload.quantity=1

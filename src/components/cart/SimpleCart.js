@@ -7,8 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import {useSelector, useDispatch} from 'react-redux';
 import DeleteIcon from '@material-ui/icons/Delete'
 import IconButton from '@material-ui/core/IconButton';
-import {getCartData,removeData} from '../../store/actions';
-import {useEffect} from 'react'
+import {removeData} from '../../store/actions';
+
 
 
 
@@ -16,10 +16,9 @@ function Products(props) {
   const state = useSelector((state)=> {
     return {cart: state.cart} });
 const dispatch = useDispatch();
-  useEffect(()=>dispatch(getCartData()), []);
   return (
     <>
-    {/* <p style={{marginLeft:'47%',fontSize:'25px'}}>My Cart</p> */}
+    <p style={{marginLeft:'47%',fontSize:'25px'}}>My Cart</p>
     <Grid item sm={5} style ={{display: 'grid',
       gridColumnGap: '50px',
       gridTemplateColumns: 'auto auto auto'}}>
