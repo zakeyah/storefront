@@ -1,3 +1,8 @@
+
+
+
+
+
 import React from 'react';
 // import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -18,13 +23,14 @@ function Products(props) {
 const dispatch = useDispatch();
   return (
     <>
-    <p style={{marginLeft:'47%',fontSize:'25px'}}>My Cart</p>
+    {/* <p style={{marginLeft:'47%',fontSize:'25px'}}>My Cart </p> */}
     <Grid item sm={5} style ={{display: 'grid',
       gridColumnGap: '50px',
       gridTemplateColumns: 'auto auto auto'}}>
           <ul>
 
     {state.cart.map((product,index) => {
+      
     
         return (
             <li>

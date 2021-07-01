@@ -4,6 +4,7 @@ import Categories from "./components/storefront/Categories";
 import Products from "./components/storefront/Products";
 import SimpleCart from "./components/cart/SimpleCart";
 import {Switch, Route} from 'react-router-dom';
+import ShoppingCart from "./components/cart/ShoppingCart";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
     <Route exact path="/">
     <Categories/>
     <Products/>
+    <SimpleCart/>
     </Route>
     <Route exact path="/cart">
-    <SimpleCart/>
+    <ShoppingCart/>
     </Route>
     </Switch>
      <Footer/>

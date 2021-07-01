@@ -28,7 +28,8 @@ const Header = (props) => {
         <AppBar color='inherit' position="static" className={style.title} >
             <Toolbar>
                 <Typography variant="h5" >
-                    <p>OUR STORE</p>
+                    {/* <p>OUR STORE</p> */}
+                    <Link to="/">OUR STORE</Link>
                     <Link to="/cart">cart :{state.cart.length}</Link>
              </Typography>
             </Toolbar>
